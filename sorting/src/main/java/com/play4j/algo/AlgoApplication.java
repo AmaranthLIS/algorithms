@@ -16,5 +16,6 @@ public class AlgoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 	    log.info("EXECUTING : command Sort");
-	}
+    }
+
 }
