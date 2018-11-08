@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 /**
  * Created by
  *
- * @Author: lis, Luganskiy Igor, foxigs@gmail.com
+ * @Author: lis, Igor, foxigs%gmail.com
  * Date: 03.11.2018  * Time: 12:14
  */
 class QuickSortTest {
