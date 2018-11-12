@@ -65,7 +65,7 @@ class MergeSortTest {
         int[]a = {0, 1, 33, 3, 4, 5, 7, 7, 8, 20, 13};
 
         MergeSortExt sorting = new MergeSortExt();
-        int[][] result = sorting.separate(a);
+        int[][] result = sorting.split(a);
         System.out.println(Arrays.toString(result[0]));
         assertNotNull(result);
         assertArrayEquals(expect, result[0]);
@@ -77,7 +77,7 @@ class MergeSortTest {
 
 class MergeSortExt extends MergeSort {
     int[][] testSeparate(int[]source) {
-        return separate(source);
+        return split(source);
     }
     int[] testMerge(int[]source, int[] source2) {
         return mergeSortedArray(source, source2);

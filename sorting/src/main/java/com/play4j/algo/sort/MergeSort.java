@@ -25,26 +25,34 @@ public class MergeSort implements Sorting {
         int point = 0;
         int last = source.length-1;
 
-        int[][]twoBaseArr = separate(source);
-        source = mergeSortedArray(makeSort(twoBaseArr[0]), makeSort(twoBaseArr[1]));
+        int[][]twoBaseArr = split(source);
+        source = mergeSortedArray(makeSort(twoBaseArr[0]), makeSort(twoBaseArr[1]));//each argument could be parallel count
 
         return source;
     }
 
     private int[] makeSort(int[] source) {
-        //todo check length of source
-        int[][] separatedArr = separate(source);
+        if (source.length < 2) return source;
+
+        int[][] separatedArr = split(source);
         if (1 > separatedArr.length)
             return new int[]{};
+        int[]result, result2;
+        if (2 > separatedArr[0].length)
+            result = separatedArr[0];
+        else
+            result = makeSort(separatedArr[0]);
+
         if (2 > separatedArr[1].length)
-            return separatedArr[0];
-        int[]result = makeSort(separatedArr[0]);
-        //todo continue develop here
-//        source = separatedArr[1];
+            result2 = separatedArr[1];
+        else
+            result2 = makeSort(separatedArr[1]);
+
+        result = mergeSortedArray(result, result2);
         return result;
     }
 
-    int[][] separate(int[] source) {
+    int[][] split(int[] source) {
         int[][]result = {};
         if (source.length < 1) return result;
         if (source.length < 2) {
@@ -61,18 +69,16 @@ public class MergeSort implements Sorting {
     }
 
     int[] mergeSortedArray(int[] source, int[] source2) {
-        //todo check little arrays
         int[] result = new int[source.length + source2.length];
         int n = 0, startSource2 = 0;
-        for (int i = 0; i < source.length; i++) {
-            int element = source[i];
+        for (int element : source) {
             for (int j = startSource2; j < source2.length; j++) {
                 if (element > source2[j]) {
                     result[n++] = source2[j];
-                    startSource2 = j+1;
+                    startSource2 = j + 1;
                 } else {
                     result[n++] = element;
-                        break;
+                    break;
                 }
             }
         }
