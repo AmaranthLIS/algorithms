@@ -7,7 +7,7 @@ import com.play4j.algo.domain.Tuple;
 /**
  * Created by
  *
- * @Author: lis, Igor, foxigs@mail.ru
+ * @Author: lis, Igor, foxigs%gmail.com
  * Date: 23.09.2018  * Time: 23:30
  * O(n log n)
  */
